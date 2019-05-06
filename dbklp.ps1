@@ -1,7 +1,7 @@
 $PSDefaultParameterValues['*:Encoding'] = 'utf8'
 $drive = Get-Volume -FileSystemLabel Lubos_Csonka	#get the info about disk with the name Lubos_Csonka
-$file = "Knihy\Databaze knih a LP.xlsm"			#path to file
-$letter = $drive.DriveLetter + ":"					#join drive letter and colon. Otherwise path wouldnt work
+$file = "Knihy\Databaze knih a LP.xlsm"			#path to file (without drive letter)
+$letter = $drive.DriveLetter + ":"			#join drive letter and colon. Otherwise path wouldnt work
 $path = Join-Path -Path $letter -ChildPath $file	#Join paths of drive letter and path to file
 
 if (((get-date)-(ls $path).LastWriteTime).days -lt 1) {
