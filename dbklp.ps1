@@ -12,6 +12,6 @@ if (Test-Path "C:\Users\csonkal\Downloads\Databaze knih a LP.xlsm") {if (!(Test-
 if (!(Get-Module "BurntToast")) {Install-Module BurntToast -Scope CurrentUser}	#if there is not module, install it
 (Copy-Item $path -Destination "C:\Users\csonkal\Downloads\"); (New-BurntToastNotification -Text "Database of books was backed up.")}	#if file is older than 1 day, copy it into folder and send a Win10 notification
 #notification has a problem with showing special characters. GitHub issue sent.
-
+Get-ChildItem –Path "C:\Users\csonkal\Downloads\DatabazeKnihZaloha" | Where-Object {($_.LastWriteTime -lt (Get-Date).AddDays(-30))} | Remove-Item  #if file in Backup is older than 30 days, delete it
 
 #change path from Downloads to Google Drive local
