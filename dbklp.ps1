@@ -8,7 +8,7 @@ try {
         if (Test-Path "C:\Users\csonkal\Downloads\Databaze knih a LP.xlsm")     #If there is file in Google Drive (folder in PC)
 	        {if (!(Test-Path "C:\Users\csonkal\Downloads\DatabazeKnihZaloha"))  #If there is not a folder Backup
                 {New-Item -ItemType directory -Path "C:\Users\csonkal\Downloads\DatabazeKnihZaloha"}    #create new folder Backup
-                    if (Test-Path "C:\Users\csonkal\Downloads\DatabazeKnihZaloha\DBKLP$(get-date -f yyMMdd).xlsm")        #if there is already backup file
+                    if (Test-Path "C:\Users\csonkal\Downloads\DatabazeKnihZaloha\DBKLP$(get-date -f yyMMdd).xlsm")        #if there is already backup file with current date
                         {(Remove-Item "C:\Users\csonkal\Downloads\DatabazeKnihZaloha\DBKLP$(get-date -f yyMMdd).xlsm")};   #delete backup file
                 (Move-Item "C:\Users\csonkal\Downloads\Databaze knih a LP.xlsm" -destination "C:\Users\csonkal\Downloads\DatabazeKnihZaloha\DBKLP$(get-date -f yyMMdd).xlsm")} #If there is a folder Backup, move file into it and rename it with current date
     if (!(Get-Module "BurntToast")) {Install-Module BurntToast -Scope CurrentUser}	#if there is not module, install it
@@ -18,6 +18,7 @@ try {
 } catch [Microsoft.PowerShell.Commands.MoveItemCommand]{
     Remove-Item -Path "C:\Users\csonkal\Downloads\DatabazeKnihZaloha\DBKLP$(get-date -f yyMMdd).xlsm"
     Remove-Item -Path "C:\Users\csonkal\Downloads\Databaze knih a LP.xlsm"
+    C:\Users\csonkal\Desktop\LCs_osobne\dbklp.ps1      #call function recursively
     New-BurntToastNotification -Text "Chyba pri presune súboru."
 }
 
