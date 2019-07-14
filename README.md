@@ -1,5 +1,5 @@
 # DBKLP
-PowerShell script to check if file was changed and if so, copy it to another file.
+Single-purpose PowerShell script to check if file was changed and if so, copy it to another file.
 
 ### Author
 Lubos Csonka 
