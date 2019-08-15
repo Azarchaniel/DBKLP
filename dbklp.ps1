@@ -9,14 +9,14 @@ if ($env:computername -eq "DESKTOP-KGPMJ57") #if it's gf's PC, use these variabl
     $GdriveZ = "C:\Users\zanet\Disk Google\Databáze knih\DatabazeKnihZaloha"
     $GdriveD = "C:\Users\zanet\Disk Google\Databáze knih\"
 }
- elseif ($env:computername -eq "Lubos PC") 
+ elseif ($env:computername -eq "DESKTOP-8S0PLJ1") #if it's mine 
 {
     $GdriveS = "C:\Users\LubosCs\Disk Google\Databáze knih\Databaze knih a LP.xlsm"
     $GdriveZ = "C:\Users\LubosCs\Disk Google\Databáze knih\DatabazeKnihZaloha"
     $GdriveD = "C:\Users\LubosCs\Disk Google\Databáze knih\"
 }
  else 
-{Write-Host "Neznámy počítač."; break}
+{Write-Host "Unknown PC."; break}
 
 try {
     if (((get-date)-(ls $path).LastWriteTime).days -lt 1) {                     #if file is older than 1 day
