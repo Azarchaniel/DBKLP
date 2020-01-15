@@ -38,3 +38,5 @@ try {
     C:\Users\csonkal\Desktop\LCs_osobne\dbklp.ps1      #call function recursively
     New-BurntToastNotification -Text "Chyba pri presune súboru."
 }
+
+Start-Sleep -s 1.5 #let console window open for 1.5s after finishing
